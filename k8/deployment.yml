@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: s12ike-argocd
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: s12ike-argocd
+  template:
+    metadata:
+      labels:
+        app: s12ike-argocd
+    spec:
+      containers:
+        - name: nginx
+          image: nginx:1.27
+          ports:
+            - containerPort: 80
